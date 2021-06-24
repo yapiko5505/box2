@@ -19,7 +19,7 @@
         <?php endif; ?>
      
         <div class="icon-list">
-            <div class= "like js-Like" data-tweet-id="<?php echo htmlspecialchars($view_tweet['tweet_image_name'], 'tweet'); ?>" data-like-id="<?php echo htmlspecialchars($view_tweet['Like_id']); ?>">
+            <div class= "Like js-Like" data-tweet-id="<?php echo htmlspecialchars($view_tweet['tweet_image_name'], 'tweet'); ?>" data-like-id="<?php echo htmlspecialchars($view_tweet['Like_id']); ?>">
                 <?php 
                     if (isset($view_tweet['Like_id'])) {
                         // いいねしている場合
