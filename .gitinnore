@@ -1,0 +1,9 @@
+#gitしないファイル
+
+.xampp
+.dashboard
+.img
+.webalizer
+.bitnami.css
+.favicon.ico
+.index.php
