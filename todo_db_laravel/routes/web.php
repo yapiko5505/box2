@@ -18,8 +18,12 @@ Route::get('/', function () {
 });
 
 
- Route::get('/plan', 'App\Http\Controllers\HelloController@index');
-Route::post('/plan', 'App\Http\Controllers\HelloController@index');
-//  Route::get('go/session','App\Http\Controllers\GoController@ses_get');
-//  Route::post('go/session','App\Http\Controllers\GoController@ses_put');
+//  Route::get('/plan', 'App\Http\Controllers\HelloController@index');
+// Route::post('/plan', 'App\Http\Controllers\HelloController@index');
+  Route::get('go/session','App\Http\Controllers\GoController@ses_get');
+  Route::post('go/session','App\Http\Controllers\GoController@ses_put');
 
+
+// Auth::routes();
+
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
