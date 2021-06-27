@@ -18,14 +18,11 @@ Route::get('/', function () {
 });
 
 
-//  Route::get('/plan', 'App\Http\Controllers\HelloController@index');
+  Route::get('/holiday', 'App\Http\Controllers\CalendarController@getHoliday');
+  Route::post('/holiday', 'App\Http\Controllers\CalendarController@postHoliday');
+
+  Route::get('/', 'App\Http\Controllers\CalendarController@index');
+
+  //  Route::get('/plan', 'App\Http\Controllers\HelloController@index');
 // Route::post('/plan', 'App\Http\Controllers\HelloController@index');
-  // Route::get('go/session','App\Http\Controllers\GoController@ses_get');
-  // Route::post('go/session','App\Http\Controllers\GoController@ses_put');
-  Route::get('person/add', 'App\Http\Controllers\PersonController@add');
-  Route::post('person/add', 'App\Http\Controllers\PersonController@create');
 
-
-// Auth::routes();
-
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
