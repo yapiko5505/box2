@@ -17,5 +17,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/holiday', 'App\Http\Controllers\CalendarController@getholiday');
-Route::post('/holiday', 'App\Http\Controllers\CalendarController@postholiday');
+Route::get('/holiday', 'App\Http\Controllers\CalendarController@getHoliday');
+Route::post('/holiday', 'App\Http\Controllers\CalendarController@postHoliday');
+Route::get('/holiday/{id}', 'App\Http\Controllers\CalendarController@getHolidayId');
+Route::delete('/holiday', 'App\Http\Controllers\CalendarController@deleteHoliday');
+
+
+Route::get('/index', 'App\Http\Controllers\CalendarController@index');
