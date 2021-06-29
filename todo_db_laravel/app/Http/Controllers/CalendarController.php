@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+// 休日設定、カレンダー、基のコントローラー、ログイン＆登録画面使用宣言
 use App\Models\Holiday;
 use App\Calendar;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CalendarController extends Controller
 {
@@ -34,7 +36,7 @@ class CalendarController extends Controller
             'day' => 'required|date_format:Y-m-d',
             'description' => 'required',
         ]);
-        
+
         // POSTで受信した休日データの登録
         if(isset($request->id)) {
             $holiday = Holiday::where('id', '=', $request->id)->first();
@@ -69,6 +71,7 @@ class CalendarController extends Controller
 
     public function index(Request $request)
     {
+        // カレンダー表示
         $list = Holiday::all();
         $cal = new Calendar($list);
         $tag = $cal->showCalendarTag($request->month,$request->year);
@@ -78,3 +81,4 @@ class CalendarController extends Controller
 
 }
 
+// カレンダー、休日設定用コントローラー

@@ -1,6 +1,10 @@
 @extends('layout')
 @section('title', '休日設定')
-@section('content')    
+@section('content')
+    @if (Auth::check())
+        <p>USER: {{$user->name . ' (' . $user->email . ')'}}</p>
+    @else<p>※ログインしていません。(<a href="/login">ログイン</a> | <a href="/register">登録</a> )</p>
+    @endif
     <h1>休日設定</h1>
     <!-- 休日入力フォーム -->
     <form method="POST" action="/holiday"> 
