@@ -11,7 +11,5 @@
     @endif
 </head>
 <a href="{{ url('/holiday') }}">休日設定</a>
-
-
     {!!$cal_tag!!}
 @endsection
