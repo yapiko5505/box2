@@ -8,14 +8,18 @@
 </head>
 <body>
     <?php 
+
+        $code=$_POST['code'];
+
         $dsn = 'mysql:dbname=phpkiso; host=localhost';
         $user = 'root';
         $password = '';
         $dbh = new PDO($dsn, $user, $password);
 
-        $sql='SELECT * FROM anketo WHERE 1';
+        $sql='SELECT * FROM anketo WHERE code=?';
         $stmt = $dbh->prepare($sql);
-        $stmt->execute();
+        $data[] = $code;
+        $stmt->execute($data);
 
         while(1)
         {
@@ -33,6 +37,6 @@
 
         $dbh = null;
     ?>
-    <br><a href="make.html">メニューに戻る</a>
+    <br><a href="kensaku.html">検索画面に戻る</a>
 </body>
 </html>
