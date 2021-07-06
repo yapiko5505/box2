@@ -1,8 +1,8 @@
 <boby>
      <?php 
 
-        try
-        {
+       
+       
             $subject=$_POST['subject'];
             $name = $_POST['name'];
             $email = $_POST['email'];
@@ -11,6 +11,9 @@
             $dsn = 'mysql:dbname = cafe;host=localhost';
             $user = 'root';
             $password = '';
+            
+        try
+        {
             $dbh = new PDO($dsn, $user, $password);
             $dbh->query('SET NAMES utf8');
 

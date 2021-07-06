@@ -1,8 +1,6 @@
 <boby>
      <?php 
 
-        try
-        {
             $nickname = $_POST['nickname'];
             $email = $_POST['email'];
             $goiken = $_POST['goiken'];
@@ -10,6 +8,9 @@
             $dsn = 'mysql:dbname = phpkiso;host=localhost';
             $user = 'root';
             $password = '';
+
+        try
+        {
             $dbh = new PDO($dsn, $user, $password);
             $dbh->query('SET NAMES utf8');
 
