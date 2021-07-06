@@ -16,7 +16,7 @@
             $dsn = 'mysql:dbname = shop; host = localhost; charset=utf8';
             $user = 'root';
             $password = '';
-            
+
         try
         {
             $dbh = new PDO($dsn, $user, $password);

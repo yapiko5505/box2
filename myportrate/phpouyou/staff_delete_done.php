@@ -8,8 +8,7 @@
 </head>
 <body>
     <?php
-       
-       
+          
             $staff_code=$_POST['code'];
 
             $dsn = 'mysql:dbname = shop; host = localhost; charset=utf8';
