@@ -9,7 +9,7 @@
 <body>
     <?php
              $staff_code = $_GET['staffcode'];
-             
+
         try
         {
             $dsn = 'mysql:dbname=shop;host=localhost;charset=utf8';
@@ -40,7 +40,7 @@
     <p>スタッフコード<br></p>
     <?php print $staff_code; ?><br><br>
     <p>このスタッフは削除してよろしいですか。<br></p>
-    <form method="post" action="staff_delate_done.php">
+    <form method="post" action="staff_delete_done.php">
         <input type="hidden" name="code" value="<?php print $staff_code; ?>">
         <input type="button" onclick="history.back()" value="戻る">
         <input type="submit" value="OK" >
