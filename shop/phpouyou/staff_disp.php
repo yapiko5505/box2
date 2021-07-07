@@ -32,6 +32,7 @@
         catch (Exception $e)
         {
             print 'ただいま障害により大変ご迷惑をおかけしております。';
+            print $e;
             exit();
         }
     ?>

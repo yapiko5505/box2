@@ -8,7 +8,7 @@
 </head>
 <body>
     <?php
-            $pro_code = $_GET['procode'];
+            $pro_code=$_GET['procode'];
 
             $dsn = 'mysql:dbname=shop;host=localhost;charset=utf8';
             $user = 'root';
@@ -25,14 +25,23 @@
             $stmt->execute($data);
 
             $rec = $stmt->fetch(PDO::FETCH_ASSOC);
-            $staff_name=$rec['name'];
+            $pro_name=$rec['name'];
+            $pro_gazou_name=$rec['gazou'];
 
             $dbh = null;
+
+            if($pro_gazou_name=='')
+            {
+                $disp_gazou='';
+            } else {
+                $disp_gazou='<img src="./gazou/'.$pro_gazou_name.'">';
+            }
 
         }
         catch (Exception $e)
         {
             print 'ただいま障害により大変ご迷惑をおかけしております。';
+            print $e;
             exit();
         }
     ?>
@@ -42,9 +51,11 @@
     <?php print $pro_code; ?><br><br>
     <p>商品名<br></p>
     <?php print $pro_name; ?><br><br>
+    <?php print $disp_gazou; ?>
     <p>この商品を削除してよろしいですか。<br></p>
     <form method="post" action="pro_delete_done.php">
         <input type="hidden" name="code" value="<?php print $pro_code; ?>">
+        <input type="hidden" name="gazou_name" value="<?php print $pro_gazou_name; ?>">
         <input type="button" onclick="history.back()" value="戻る">
         <input type="submit" value="OK" >
     </form>

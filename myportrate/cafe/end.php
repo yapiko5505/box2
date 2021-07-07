@@ -17,19 +17,14 @@
             $dbh = new PDO($dsn, $user, $password);
             $dbh->query('SET NAMES utf8');
 
-            $subject = htmlspecialchars($subject);
-            $name = htmlspecialchars($name);
-            $email = htmlspecialchars($email);
-            $message = htmlspecialchars($message);
-
-            print $subject;
-            print $name;
+            print htmlspecialchars($subject);;
+            print htmlspecialchars($name);
             print '様<br>';
             print 'お問い合わせありがとうございました。<br>';
             print '頂いたお問い合わせの内容『';
-            print $message;
+            print  htmlspecialchars($message);
             print '』<br>';
-            print $email;
+            print htmlspecialchars($email);
             print 'にメールを送りましたのでご確認ください。';
 
             $mail_sub = 'お問い合わせ受け付けました。';
@@ -50,6 +45,7 @@
         catch(Exception $e)
         {
             print 'ただいま障害により大変ご迷惑をおかけしております。';
+            print $e;
         }
     ?>
 
