@@ -38,9 +38,11 @@
 
     <p>商品削除<br></p>
     <p>商品コード<br></p>
+    <?php print $pro_code; ?><br><br>
+    <p>商品名<br></p>
     <?php print $pro_name; ?><br><br>
     <p>この商品を削除してよろしいですか。<br></p>
-    <form method="post" action="staff_delete_done.php">
+    <form method="post" action="pro_delete_done.php">
         <input type="hidden" name="code" value="<?php print $pro_code; ?>">
         <input type="button" onclick="history.back()" value="戻る">
         <input type="submit" value="OK" >

@@ -5,7 +5,7 @@
             $email = $_POST['email'];
             $goiken = $_POST['goiken'];
 
-            $dsn = 'mysql:dbname = phpkiso;host=localhost';
+            $dsn = 'mysql:dbname=phpkiso;host=localhost';
             $user = 'root';
             $password = '';
 

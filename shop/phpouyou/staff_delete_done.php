@@ -11,14 +11,14 @@
           
             $staff_code=$_POST['code'];
 
-            $dsn = 'mysql:dbname = shop; host = localhost; charset=utf8';
+            $dsn = 'mysql:dbname=shop;host=localhost;charset=utf8';
             $user = 'root';
             $password = '';
         
         try
         {
             $dbh = new PDO($dsn, $user, $password);
-            $dbh->query(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
             $sql = 'DELETE FROM mst_staff WHERE code=?';
             $stmt = $dbh->prepare($sql);

@@ -13,7 +13,7 @@
             $pro_name=$_POST['name'];
             $pro_price=$_POST['price'];
 
-            $dsn = 'mysql:dbname = shop; host = localhost; charset=utf8';
+            $dsn = 'mysql:dbname=shop; host=localhost; charset=utf8';
             $user = 'root';
             $password = '';
 

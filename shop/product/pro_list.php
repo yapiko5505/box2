@@ -38,12 +38,13 @@
                 print $rec['price'].'円';
                 print '<br>';
 
-                print '<input type="submit" name="disp" value="参照">';
-                print '<input type="submit" name="add" value="追加">';
-                print '<input type="submit" name="edit" value="修正">';
-                print '<input type="submit" name="delete" value="削除">';
-                print '</form>';
             }
+
+            print '<input type="submit" name="disp" value="参照">';
+            print '<input type="submit" name="add" value="追加">';
+            print '<input type="submit" name="edit" value="修正">';
+            print '<input type="submit" name="delete" value="削除">';
+            print '</form>';
         }
         catch (Exception $e)
         {

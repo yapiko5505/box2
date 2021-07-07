@@ -33,7 +33,7 @@
             print $pro_price;
             print'円<br>';
         }
-        if($pro_name=='' || $preg_match('/A\[0-9]+\z/',$pro_price)==0 ) 
+        if($pro_name=='' || $preg_match('/A\[0-9]+\z/',$pro_price) == 0 ) 
         {
             print '<form>';
             print '<input type="button" onclick="history.back()" value="戻る">';
