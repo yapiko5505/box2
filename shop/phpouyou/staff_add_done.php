@@ -13,7 +13,7 @@
             $staff_name=$_POST['name'];
             $staff_pass=$_POST['pass'];
 
-            $dsn = 'mysql:dbname=shop;host = localhost;charset=utf8';
+            $dsn = 'mysql:dbname=shop;host=localhost;charset=utf8';
             $user = 'root';
             $password = '';
 

@@ -12,14 +12,14 @@
             $pro_name=$_POST['name'];
             $pro_price=$_POST['price'];
 
-            $dsn = 'mysql:dbname = shop; host = localhost; charset=utf8';
+            $dsn = 'mysql:dbname=shop;host=localhost;charset=utf8';
             $user = 'root';
             $password = '';
 
         try
         {
             $dbh = new PDO($dsn, $user, $password);
-            $dbh->query(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
             $pro_code=htmlspecialchars($pro_code, ENT_QUOTES, 'UTF-8');
             $pro_name=htmlspecialchars($pro_name, ENT_QUOTES, 'UTF-8');
