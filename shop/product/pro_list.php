@@ -1,3 +1,19 @@
+<?php
+    session_start();
+    if(isset($_SESSION['login'])==false)
+    {
+        print 'ログインされていません。<br>';
+        print '<a href = "../staff_login/staff_login.html">ログイン画面へ</a>';  
+        exit();
+    } 
+    else {
+        print $_SESSION['staff_name'];
+        print 'さんログイン中<br>';
+        print '<br>';
+    }
+
+?>
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -8,11 +24,13 @@
 </head>
 <body>
     <?php
-        try
-        {
+
             $dsn = 'mysql:dbname=shop;host=localhost;charset=utf8';
             $user = 'root';
             $password = '';
+
+        try
+        {
             $dbh = new PDO($dsn, $user, $password);
             $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
@@ -52,6 +70,8 @@
             exit();
         }
     ?>
+
+<br><a href="../staff_login/staff_top.php">トップメニューへ</a><br>
 </body>
 
 </html>

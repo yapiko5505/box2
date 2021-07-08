@@ -14,6 +14,10 @@
 
 ?>
 
+
+
+
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -23,7 +27,9 @@
     <title>ろくまる農園</title>
 </head>
 <body>
-    <p>商品が選択されていません。<br></P>
-    <a href="pro_list.php">戻る</a>
+    <p>ショップ管理トップメニュー<br></P>
+    <br><a href="../staff/staff_list.php">スタッフ管理</a><br>
+    <br><a href="../product/pro_list.php">商品管理</a><br>
+    <br><a href="staff_logout.php">ログアウト</a><br>
 </body>
 </html>

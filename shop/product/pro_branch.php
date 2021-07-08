@@ -8,6 +8,15 @@
 </head>
 <body>
     <?php
+
+        session_start();
+        if(isset($_SESSION['login'])==false)
+        {
+            print 'ログインされていません。<br>';
+            print '<a href = "../staff_login/staff_login.html">ログイン画面へ</a>';  
+            exit();
+        } 
+        
         if(isset($_POST['disp'])==true)
         {
             if(isset($_POST['procode'])==false)
