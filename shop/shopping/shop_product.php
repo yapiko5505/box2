@@ -1,9 +1,9 @@
-  <?php 
+<?php
     // session_start();
     // session_regenerate_id(true);
     // if(isset($_SESSION['member_login'])==false)
     // {
-        // print 'ようこそゲスト様';
+        // print 'ようこそゲスト様　';
         // print '<a href = "member_login.html">会員ログイン</a><br>';  
         // exit();
     // } 
@@ -15,7 +15,7 @@
         // print '<br>';
     // }
 
-// ?>
+?>
 
 <!DOCTYPE html>
 <html lang="ja">
@@ -27,43 +27,36 @@
 </head>
 <body>
     <?php
-
+            $pro_code = $_GET['procode'];
+            
+        try
+        {
             $dsn = 'mysql:dbname=shop;host=localhost;charset=utf8';
             $user = 'root';
             $password = '';
-
-        try
-        {
             $dbh = new PDO($dsn, $user, $password);
             $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-            $sql = 'SELECT code, name, price FROM mst_product WHERE 1';
+            $sql = 'SELECT name, price, gazou FROM mst_product WHERE code=?';
             $stmt = $dbh->prepare($sql);
-            $stmt->execute();
+            $data[] = $pro_code;
+            $stmt->execute($data);
+
+            $rec = $stmt->fetch(PDO::FETCH_ASSOC);
+            $pro_name=$rec['name'];
+            $pro_price=$rec['price'];
+            $pro_gazou_name=$rec['gazou'];
 
             $dbh = null;
 
-            print '商品一覧<br><br>';
-
-            // print '<form method="post" action="pro_branch.php">';
-            while(true)
+            if($pro_gazou_name=='')
             {
-                $rec = $stmt->fetch(PDO::FETCH_ASSOC);
-
-                if($rec==false)
-                {
-                    break;
-                }
-
-                print '<a href="shop_product.php?procode='.$rec['code'].'">';
-                print $rec['name'].'---';
-                print $rec['price'].'円';
-                print '</a>';
-                print '<br>';
-
+                $disp_gazou='';
+            } else {
+                $disp_gazou='<img src="../product/gazou/'.$pro_gazou_name.'">';
             }
-            print '<br>';
-            print '<a href="shop_cartlook.php">カートを見る</a><br>';
+            print '<a href="shop_cartin.php?procode='.$pro_code.'">カートに入れる</a><br><br>';
+
         }
         catch (Exception $e)
         {
@@ -72,6 +65,17 @@
         }
     ?>
 
+    <p>商品情報参照<br></p>
+    <p>商品コード<br></p>
+    <?php print $pro_code; ?><br><br>
+    <p>商品名<br></p>
+    <?php print $pro_name; ?><br><br>
+    <p>価格<br></p>
+    <?php print $pro_price; ?>円<br><br>
+    <?php print $disp_gazou; ?><br><br>
+    <form>
+        <input type="button" onclick="history.back()" value="戻る">
+    </form>
 </body>
 
 </html>

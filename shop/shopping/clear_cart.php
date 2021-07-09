@@ -18,7 +18,6 @@
     <title>ろくまる農園</title>
 </head>
 <body>
-    <p>ログアウトしました。<br></P>
-    <br><a href="../staff_login/staff_login.html">ログイン画面へ</a><br>
+    <p>カートを空にしました。<br></P>
 </body>
 </html>
