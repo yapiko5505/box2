@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-// 休日設定、カレンダー、基のコントローラー、ログイン＆登録画面使用宣言
+// 休日設定、カレンダーコントローラー、ログイン＆登録画面使用宣言
 use App\Models\Holiday;
 use App\Calendar;
 use Illuminate\Http\Request;
@@ -81,4 +81,3 @@ class CalendarController extends Controller
 
 }
 
-// カレンダー、休日設定用コントローラー
