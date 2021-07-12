@@ -26,14 +26,6 @@ Route::delete('/holiday', 'App\Http\Controllers\CalendarController@deleteHoliday
 // カレンダー表示
 Route::get('/index', 'App\Http\Controllers\CalendarController@index');
 
-// ログイン表示
-// Route::get('/login', 'App\Http\Controllers\TeamsController@index');
-// Route::post('/login', 'App\Http\Controllers\TeamsController@index');
-
-
-// 予定表表示
-// Route::get('/plan', 'App\Http\Controllers\TeamsController@index');
-// Route::post('/plan', 'App\Http\Controllers\TeamsController@index');
 
 // カレンダー組み込みログイン画面
 Auth::routes();
