@@ -1,19 +1,18 @@
 <?php
-    //   session_start();
-    //   session_regenerate_id(true);
-    //   if(isset($_SESSION['member_login'])==false)
-    //   {
-        //  print 'ようこそゲスト様　';
-        //  print '<a href = "member_login.html">会員ログイン</a><br>';  
-        //  exit();
-    //   } 
-    //   else {
-        //  print 'ようこそ';
-        //  print $_SESSION['member_name'];
-        //  print '様<br>';
-        //  print '<a href = "member_logout.php">ログアウト</a><br>';  
-        //  print '<br>';
-    //   }
+       session_start();
+       session_regenerate_id(true);
+       if(isset($_SESSION['member_login'])==false)
+       {
+          print 'ようこそゲスト様　';
+          print '<a href = "member_login.html">会員ログイン</a><br>';  
+       } 
+       else {
+          print 'ようこそ';
+          print $_SESSION['member_name'];
+          print '様<br>';
+          print '<a href = "member_logout.php">ログアウト</a><br>';  
+          print '<br>';
+       }
 
 ?>
 
@@ -37,7 +36,7 @@
                 $max=0;
             }
 
-            if(max==0)
+            if($max==0)
             {
                 print 'カートに商品が入っていません。<br>';
                 print '<br>';
@@ -114,6 +113,12 @@
         <input type="button" onclick="history.back()" value="戻る">
     </form>
     <br><a href="shop_form.html">ご購入手続きへ進む</a><br>
+    <?php 
+        if(isset($_SESSION["member_login"])==true)
+        {
+            print '<a href="shop_kantan_check.php">会員簡単注文へ進む</a><br>';
+        }
+    ?>
 </body>
 
 </html>

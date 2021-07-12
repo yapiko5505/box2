@@ -1,19 +1,20 @@
 <?php
-    // session_start();
-    // session_regenerate_id(true);
-    // if(isset($_SESSION['member_login'])==false)
-    // {
-        // print 'ようこそゲスト様　';
-        // print '<a href = "member_login.html">会員ログイン</a><br>';  
-        // exit();
-    // } 
-    // else {
-        // print 'ようこそ';
-        // print $_SESSION['member_name'];
-        // print '様<br>';
-        // print '<a href = "member_logout.php">ログアウト</a><br>';  
-        // print '<br>';
-    // }
+     session_start();
+     session_regenerate_id(true);
+     if(isset($_SESSION['member_login'])==false)
+     {
+        print 'ようこそゲスト様　';
+        print '<a href = "member_login.html">会員ログイン</a><br>';
+        print '<br>';  
+         
+     } 
+     else {
+        print 'ようこそ';
+        print $_SESSION['member_name'];
+        print '様<br>';
+        print '<a href = "member_logout.php">ログアウト</a><br>';  
+        print '<br>';
+     }
 
 ?>
 
@@ -28,6 +29,14 @@
 <body>
     <?php
             $pro_code = $_GET['procode'];
+            $cart[]=$pro_code;
+            $_SESSION['cart']=$cart;
+
+            foreach($cart as $key => $val)
+            {
+                print $val;
+                print '<br>';
+            }
            
         try
         {

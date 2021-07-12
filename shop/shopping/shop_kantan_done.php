@@ -1,6 +1,12 @@
- <?php
+<?php
      session_start();
      session_regenerate_id(true);
+     if(isset($_SESSION['member_login'])==false)
+     {
+         print 'ログインされていません。<br>';
+         print '<a href="shop_list.php">商品一覧へ</a>';
+         exit();
+     }
  ?>
 
 <!DOCTYPE html>
@@ -78,7 +84,7 @@
                 $stmt = $dbh->prepare($sql);
                 $stmt->execute();
 
-                $lastmembercode=0;
+                $lastmembercode=$_SESSION['member_code'];
                 if($chumon=='chumontouroku')
                 {
                     $sql = 'INSERT INTO dat_sales (code_member, name, email, postal1, postal2, address, 

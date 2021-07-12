@@ -16,7 +16,7 @@
             exit();
         }
 
-        if($post['kazu'.$i])
+        if($post['kazu'.$i]<1 || 10<$post['kazu'.$i])
         {
             print '数量は必ず１個以上、１０個までです。';
             print '<a href="shop_cartlook.php">カートに戻る</a>';
