@@ -68,7 +68,6 @@ class CalendarController extends Controller
         return view('calendar.holiday', ['list' => $list, 'data' => $data]);
     }
 
-
     public function index(Request $request)
     {
         // カレンダー表示
@@ -80,4 +79,3 @@ class CalendarController extends Controller
     }
 
 }
-
