@@ -62,7 +62,7 @@
             @endforeach
         <tbody>
     </table>
-    <a href="{{ url('/') }}">カレンダーに戻る</a>
+    <a href="{{ url('/index') }}">カレンダーに戻る</a>
     <script>
     $( function() {
         $( "#day").datepicker({dateFormat: 'yy-mm-dd'});
