@@ -15,8 +15,27 @@ class Calendartest extends TestCase
      */
     public function test_example()
     {
+
+        $this->assertStatus(true);
+        
         $response = $this->get('/');
 
         $response->assertStatus(200);
+
+        $response = $this->get('/index');
+
+        $response->assertStatus(302);
+
+        $user = factory(User::class)->create();
+
+        $response = $this->actingAs($user)->get('/index');
+
+        $response->assertStatus(200);
+
+        $response = $this->get('no_route');
+
+        $response->assretStatus(404);
+
+        
     }
 }
