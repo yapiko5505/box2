@@ -1,8 +1,8 @@
 @extends('layout')
 @section('title', '休日設定')
 @section('content')
-    <h1>休日設定</h1>
-    <!-- 休日入力フォーム -->
+    <h1>スケジュール設定</h1>
+    <!-- スケジュール入力フォーム -->
     <form method="POST" action="/holiday"> 
         <div class="form-group">
         {{csrf_field()}}  
@@ -23,7 +23,7 @@
             </ul>
         </div>
     @endif
-    <!-- 休日一覧表示 -->
+    <!-- スケジュール一覧表示 -->
     <table class="table">
         <thead>
             <tr>
