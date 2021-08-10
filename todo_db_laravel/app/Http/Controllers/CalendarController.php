@@ -22,7 +22,6 @@ class CalendarController extends Controller
     {
         // 休日データ取得
         $data = new Holiday();
-        $data = new Holiday();
         if (isset($id)) {
             $data = Holiday::where('id', '=', $id)->first();
         }
