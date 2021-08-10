@@ -24,7 +24,7 @@ Route::get('/holiday/{id}', 'App\Http\Controllers\CalendarController@getHolidayI
 Route::delete('/holiday', 'App\Http\Controllers\CalendarController@deleteHoliday');
 
 // カレンダー表示
- Route::get('/index', 'App\Http\Controllers\CalendarController@index');
+ Route::get('/index/{year?}/{month?}', 'App\Http\Controllers\CalendarController@index')->name('calendar');
     
 
 

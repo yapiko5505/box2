@@ -67,12 +67,25 @@ class CalendarController extends Controller
         return view('calendar.holiday', ['list' => $list, 'data' => $data]);
     }
 
-    public function index(Request $request)
+    public function index(Request $request, $year = null, $month = null )
     {
         // カレンダー表示
-        $list = Holiday::all();
+        // $list = Holiday::all();
+
+        $begin = date('Y-m-1');
+        $end = date('Y-m-t');
+        if( $year ){
+            $time = strtotime("{$year}-{$month}-1");
+            $begin = date('Y-m-1',$time);
+            $end = date('Y-m-t', $time);
+        }
+        $list = Holiday::where('day', '>=', $begin )
+                    ->where('day', '<=', $end)
+                    ->get();
+
         $cal = new Calendar($list);
-        $tag = $cal->showCalendarTag($request->month,$request->year);
+
+        $tag = $cal->showCalendarTag($month,$year);
 
         return view('calendar.index', ['cal_tag' => $tag]);
     }
