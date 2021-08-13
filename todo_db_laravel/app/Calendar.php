@@ -70,7 +70,7 @@ class Calendar
                     $target = date("Y-m-d", mktime(0, 0, 0, $month, $day, $year));
                     foreach($this->holidays as $val) {
                         if ($val->day == $target) {
-                            $this->html .= $val->description.' ';
+                            $this->html .= "<br>".$val->description;
                             // break;
                         }
                     }
