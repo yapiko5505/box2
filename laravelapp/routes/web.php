@@ -18,5 +18,9 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::get('/address','App\Http\Controllers\AddressController@index');
-Route::post('/address','App\Http\Controllers\AddressController@index');
+Route::post('/address','App\Http\Controllers\AddressController@post');
+Route::get('/address/add','App\Http\Controllers\AddressController@add');
+Route::post('/address/add','App\Http\Controllers\AddressController@create');
+
+
 

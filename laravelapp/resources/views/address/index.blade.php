@@ -8,19 +8,23 @@
 @endsection
 
 @section('content')
-    <p>ここが本文のコンテンツです。</p>
-    <p>必要な分だけ記述できます。</p>
+        <table>
+            @csrf
+            <tr><th>name</th><th>postal</th><th>address</th><th>phone</th><th>email</th><th>todo</th><tr>
+                @foreach ($items as $item)
+                <tr>
+                    <td>{{$item->name}}</td>
+                    <td>{{$item->postal}}</td>
+                    <td>{{$item->address}}</td>
+                    <td>{{$item->phone}}</td>
+                    <td>{{$item->email}}</td>
+                    <td>{{$item->todo}}</td>
+                </tr>
+                @endforeach
+        </table>
+    </form>
+
 @endsection
-
-@component('components.message')
-    @slot('msg_title')
-    メッセージの表示です。
-    @endslot
-
-    @slot('msg_content')
-    hello
-    @endslot
-@endcomponent
 
 @section('footer')
 copyright 2021
