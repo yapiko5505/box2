@@ -8,7 +8,7 @@
 @endsection
 
 @section('content')
-    <form action="/addresss/delete" method="post">
+    <form action="/address/delete" method="post">
         <table>
             @csrf
             <input type="hidden" name="id" value="{{$form->id}}">
