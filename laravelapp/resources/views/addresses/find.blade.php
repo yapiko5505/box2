@@ -21,7 +21,6 @@
         </tr>
     </table>
     @endif
-    </form>
 @endsection
 
 @section('footer')
