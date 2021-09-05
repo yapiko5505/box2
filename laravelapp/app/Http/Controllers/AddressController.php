@@ -3,78 +3,66 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
+use App\Models\Address;
 
 class AddressController extends Controller
 {
-    //
+    public function index(Request $request)
+    {
+        $items = Address::all();
+        return view('addresses.index', ['items' => $items]);
+    }
 
-        public function index(Request $request)
-        {   
-            $items = DB::select('select * from addresss');
-            return view('address.index', ['items'=> $items]);
-        }
+    public function add(Request $request)
+    {
+        return view('addresses.add');
+    }
 
-        public function post(Request $request)
-        {
-            $items = DB::select('select * from addresss');
-            return view('address.index', ['items'=> $items]);
-        }
+    public function create(Request $request)
+    {
+        $address = new Address;
+        $form = $request->all();
+        unset($form['_token']);
+        $address->fill($form)->save();
+        return redirect('/addresses');
+    }
 
-        public function add(Request $request)
-        {
-            return view('address.add');
-        }
+    public function find(Request $request)
+    {
+        return view('addresses.find', ['input' => '']);
+    }
 
-        public function create(Request $request)
-        {
-            $param = [
-                'name' => $request->name,
-                'postal' => $request->postal,
-                'address' => $request->address,
-                'phone' => $request->phone,
-                'email' => $request->email,
-                'todo' => $request->todo,
-            ];
-            DB::insert('insert into addresss(name, postal, address, phone, email, todo) values
-             (:name, :postal, :address, :phone, :email, :todo)', $param);
-             return redirect('/address');
-        }
+    public function search(Request $request)
+    {
+        $item = Address::find($request->input);
+        $param = ['input' => $request->input, 'item' => $item];
+        return view('addresses.find', $param);
+    }
 
-        public function edit(Request $request)
-        {
-            $param = ['id' => $request->id];
-            $item = DB::select('select * from addresss where id = :id', $param);
-            return view('address.edit', ['form' => $item[0]]);
-        }
+    public function edit(Request $request)
+    {
+        $address = Address::find($request->id);
+        return view('addresses.edit', ['form' => $address]);
+    }
 
-        public function update(Request $request)
-        {
-            $param = [
-                'id' => $request->id,
-                'name' => $request->name,
-                'postal' => $request->postal,
-                'address' => $request->address,
-                'phone' => $request->phone,
-                'email' => $request->email,
-                'todo' => $request->todo,    
-            ];
-            DB::update('update addresss set name = :name, postal = :postal, address = :address, phone = :phone, email = :email, todo = :todo where id = :id', $param);
-            return redirect('/address');
+    public function update(Request $request)
+    {
+        $address = Address::find($request->id);
+        $form = $request->all();
+        unset($form['_token']);
+        $address->fill($form)->save();
+        return redirect('/addresses');
+    }
 
-        }
+    public function delete(Request $request)
+    {
+        $address = Address::find($request->id);
+        return view('addresses.del', ['form' => $address]);
+    }   
 
-        public function delete(Request $request)
-        {
-            $param = ['id' => $request->id];
-            $item = DB::select('select * from addresss where id = :id', $param);
-            return view('address.delete', ['form' => $item[0]]);
-        }
-
-        public function remove(Request $request)
-        {
-            $param = ['id' => $request->id];
-            DB::delete('delete from addresss where id = :id', $param);
-            return redirect('/address');
-        }
+    public function remove(Request $request)
+    {
+        Address::find($request->id)->delete();
+        return redirect('/addresses');
+    }
 }

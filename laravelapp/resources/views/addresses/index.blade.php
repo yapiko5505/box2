@@ -1,6 +1,6 @@
 @extends('layouts.addressapp')
 
-@section('title', 'Index')
+@section('title', 'Addresses.Index')
 
 @section('menubar')
     @parent
