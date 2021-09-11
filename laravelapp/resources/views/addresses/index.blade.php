@@ -4,7 +4,11 @@
 
 @section('menubar')
     @parent
-    インデックスページ
+    インデックスページ<br>
+    <a href="{{ url('/addresses/add') }}">新規登録</a><br>
+    <a href="{{ url('/addresses/find') }}">検索</a><br>
+    <a href="{{ url('/addresses/edit?id=') }}">更新</a><br>
+    <a href="{{ url('/addresses/del?id=') }}">削除</a><br>
 @endsection
 
 @section('content')
