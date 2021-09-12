@@ -33,4 +33,42 @@ class CustomersController extends Controller
         DB::table('customers')->insert($param);
         return redirect('/customer');
     }
+
+    public function edit(Request $request) 
+    {
+        $item = DB::table('customers')
+            ->where('id', $request->id)->first();
+            return view('customer.edit',['form' => $item]);       
+    }
+
+    public function update(Request $request)
+    {
+        $param = [
+            'name' => $request->name,
+            'postal' => $request->postal,
+            'address' => $request->address,
+            'phone' => $request->phone,
+            'email' => $request->email,
+            'todo' => $request->todo,
+            
+        ];
+        DB::table('customers')
+            ->where('id', $request->id)
+            ->update($param);
+            return redirect('/customer');
+    }
+
+    public function del(Request $request) 
+    {
+        $item = DB::table('customers')
+            ->where('id', $request->id)->first();
+            return view('customer.edit',['form' => $item]);
+    }
+
+    public function remove(Request $request)
+    {
+        DB::table('customers')
+            ->where('id', $request->id)->delete();
+            return redirect('/customer');
+    }
 }

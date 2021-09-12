@@ -20,3 +20,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('customer','App\Http\Controllers\CustomersController@index');
 Route::get('/customer/add','App\Http\Controllers\CustomersController@add');
 Route::post('/customer/add','App\Http\Controllers\CustomersController@create');
+Route::get('/customer/edit','App\Http\Controllers\CustomersController@edit');
+Route::post('/customer/edit','App\Http\Controllers\CustomersController@update');
+Route::get('/customer/del','App\Http\Controllers\CustomersController@del');
+Route::post('/customer/del','App\Http\Controllers\CustomersController@remove');
+
