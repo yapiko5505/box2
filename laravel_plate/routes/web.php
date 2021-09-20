@@ -17,18 +17,18 @@ use Illuminate\Support\Facades\Route;
     // return view('welcome');
 // });
 
-  //  Route::group(['prefix' => 'customer'], function(){
-    Route::get('/customer/list','App\Http\Controllers\CustomerController@getIndex');
-    Route::get('/customer/new','App\Http\Controllers\CustomerController@new_index');
-    Route::patch('/customer/new','App\Http\Controllers\CustomerController@new_confirm');
-    Route::post('/customer/new','App\Http\Controllers\CustomerController@new_finish');
-    Route::get('/customer/edit/{id}','App\Http\Controllers\CustomerController@edit_index');
-    Route::patch('/customer/edit/{id}','App\Http\Controllers\CustomerController@edit_confirm');
-    Route::post('/customer/edit/{id}','App\Http\Controllers\CustomerController@edit_finish');
-    Route::get('/customer/delete/{id}','App\Http\Controllers\CustomerController@delete');
-    Route::post('/customer/delete/{id}','App\Http\Controllers\CustomerController@remove');
+    Route::prefix('customer')->group(function () {
+      Route::get('/list','App\Http\Controllers\CustomerController@getIndex');
+      Route::get('/new','App\Http\Controllers\CustomerController@new_index');
+      Route::patch('/new','App\Http\Controllers\CustomerController@new_confirm');
+      Route::post('/new','App\Http\Controllers\CustomerController@new_finish');
+      Route::get('/edit/{id}','App\Http\Controllers\CustomerController@edit_index');
+      Route::patch('/edit/{id}','App\Http\Controllers\CustomerController@edit_confirm');
+      Route::post('/edit/{id}','App\Http\Controllers\CustomerController@edit_finish');
+      Route::get('/delete/{id}','App\Http\Controllers\CustomerController@delete');
+      Route::post('/delete/{id}','App\Http\Controllers\CustomerController@remove');
 
-    // });
+     });
     
     
     

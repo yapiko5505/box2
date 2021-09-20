@@ -7,8 +7,16 @@ use App\Models\Customer;
 
 class CustomerController extends Controller
 {
-    public function getIndex()
+    public function getIndex(Request $request)
     {
+        $keyword = $request->input('keyword');
+
+        $query = Customer::query();
+
+        if(!empty($keyword))
+        {
+            $query->where('name', '%'.$keyword.'%');
+        }
         $items = Customer::all();
         return view('customer.list')->with('items', $items);
     }
