@@ -17,11 +17,23 @@ use Illuminate\Support\Facades\Route;
     // return view('welcome');
 // });
 
-Route::get('customer','App\Http\Controllers\CustomersController@index');
-Route::get('/customer/add','App\Http\Controllers\CustomersController@add');
-Route::post('/customer/add','App\Http\Controllers\CustomersController@create');
-Route::get('/customer/edit','App\Http\Controllers\CustomersController@edit');
-Route::post('/customer/edit','App\Http\Controllers\CustomersController@update');
-Route::get('/customer/del','App\Http\Controllers\CustomersController@del');
-Route::post('/customer/del','App\Http\Controllers\CustomersController@remove');
+  //  Route::group(['prefix' => 'customer'], function(){
+    Route::get('/customer/list','App\Http\Controllers\CustomerController@getIndex');
+    Route::get('/customer/new','App\Http\Controllers\CustomerController@new_index');
+    Route::patch('/customer/new','App\Http\Controllers\CustomerController@new_confirm');
+    Route::post('/customer/new','App\Http\Controllers\CustomerController@new_finish');
+    Route::get('/customer/edit/{id}','App\Http\Controllers\CustomerController@edit_index');
+    Route::patch('/customer/edit/{id}','App\Http\Controllers\CustomerController@edit_confirm');
+    Route::post('/customer/edit/{id}','App\Http\Controllers\CustomerController@edit_finish');
+    Route::get('/customer/delete/{id}','App\Http\Controllers\CustomerController@delete');
+    Route::post('/customer/delete/{id}','App\Http\Controllers\CustomerController@remove');
+
+    // });
+    
+    
+    
+    
+    
+    
+    
 

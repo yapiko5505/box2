@@ -1,14 +1,14 @@
 @extends('layouts.layoutapp')
 
-@section('title', 'Customers.Edit')
+@section('title', 'Customer.Delete')
 
 @section('menubar')
     @parent
-    更新ページ
+    削除ページ
 @endsection
 
 @section('content')
-    <form action="/customer/edit" method="post">
+    <form action="/customer/delete" method="post">
         <table>
             @csrf
             <input type="hidden" name="id" value="{{$form->id}}">

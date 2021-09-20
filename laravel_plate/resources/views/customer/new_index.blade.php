@@ -8,9 +8,10 @@
 @endsection
 
 @section('content')
-    <form action="/customer/add" method="post">
+    <form action="" method="post">
         <table>
-            @csrf
+        {{ csrf_field() }}
+        {{ method_field('patch') }}
             <tr><th>name: </th><td><input type="text" name="name" ></td></tr>
             <tr><th>postal: </th><td><input type="text" name="postal" ></td></tr>
             <tr><th>address: </th><td><input type="text" name="address" ></td></tr>
@@ -20,6 +21,9 @@
             <tr><th></th><td><input type="submit" value="send"></td></tr>
         </table>
     </form>
+
+
+
 @endsection
 
 @section('footer')

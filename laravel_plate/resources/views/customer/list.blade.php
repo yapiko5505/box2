@@ -1,6 +1,5 @@
 @extends('layouts.layoutapp')
-
-@section('title', 'Customers.Index')
+@section('title', 'Customer.List')
 
 @section('menubar')
     @parent
@@ -28,7 +27,6 @@
                 </tr>
                 @endforeach
         </table>
-
 @endsection
 
 @section('footer')

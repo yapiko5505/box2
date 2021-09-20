@@ -1,17 +1,17 @@
 @extends('layouts.layoutapp')
 
-@section('title', 'Customer.Delete')
+@section('title', 'Customer.Edit')
 
 @section('menubar')
     @parent
-    削除ページ
+    更新ページ
 @endsection
 
 @section('content')
-    <form action="/customer/del" method="post">
+    <form action="" method="post">
         <table>
-            @csrf
-            <input type="hidden" name="id" value="{{$form->id}}">
+        {{ csrf_field() }}
+        {{ method_field('patch') }}
             <tr><th>id: </th><td><input type="text" name="id" value="{{$form->id}}"></td></tr>
             <tr><th>name: </th><td><input type="text" name="name" value="{{$form->name}}"></td></tr>
             <tr><th>postal: </th><td><input type="text" name="postal" value="{{$form->postal}}"></td></tr>
