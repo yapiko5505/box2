@@ -11,7 +11,7 @@
             <div class="col-sm-10" style="margin-bottom: 10px;">
                 <form method="get" action="" class="form-inline">
                     <div class="form-group">
-                        <input type="text" name="keyword" class="form-control" value="" placeholder="検索キーワード">
+                        <input type="text" name="keyword" class="form-control" value="{{$keyword}}" placeholder="検索キーワード">
                     </div>
                     <input type="submit" value="検索" class="btn btn-info">
                 </form>
@@ -33,12 +33,15 @@
                     <td>{{$item->email}}</td>
                     <td>{{$item->todo}}</td>
                     <td>
-                        <a href="/customer/edit_index" class="btn btn-primary btn-sm">編集</a>
-                        <a href="/customer/delete" class="btn btn-danger btn-sm">削除</a>
+                        <a href="" class="btn btn-primary btn-sm">編集</a>
+                        <a href="/customer/delete/?" class="btn btn-danger btn-sm">削除</a>
                     </td>
                 </tr>
                 @endforeach
         </table>
+        <!-- page control -->
+        {!! $items->appends(['keyword'=>$keyword])->render() !!}
+
 @endsection
 
 @section('footer')

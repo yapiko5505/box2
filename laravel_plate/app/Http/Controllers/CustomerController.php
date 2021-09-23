@@ -9,16 +9,16 @@ class CustomerController extends Controller
 {
     public function getIndex(Request $request)
     {
-        $keyword = $request->input('keyword');
+         $keyword = $request->input('keyword');
 
-        $query = Customer::query();
+         $query = Customer::query();
 
-        if(!empty($keyword))
-        {
-            $query->where('name', '%'.$keyword.'%');
-        }
-        $items = Customer::all();
-        return view('customer.list')->with('items', $items);
+         if(!empty($keyword))
+         {
+             $query->where('name', '%'.$keyword.'%');
+         }
+        $items = $query->orderBy('id', 'desc')->paginate(5);
+        return view('customer.list')->with('items', $items)->with('keyword', $keyword);
     }
 
     public function new_index()
@@ -26,7 +26,7 @@ class CustomerController extends Controller
         return view('customer.new_index');
     }
 
-    public function new_confirm(Request $request)
+    public function new_confirm(\App\Http\Requests\CustomerRequest $request)
     {
         $data = $request->all();
         return view('customer.new_confirm')->with($data);
@@ -54,11 +54,11 @@ class CustomerController extends Controller
 
     public function edit_index($id)
     {
-        $item = Customer::findOrFail($id);
+        $item = \App\Customer::findOrFail($id);
         return view('customer.edit_index')->with('item', $item);
     }
 
-    public function edit_confirm(Request $request)
+    public function edit_confirm(\App\Http\Requests\CustomerRequest $request)
     {
         $data = $request->all();
         return view('customer.edit_confirm')->with($data);
