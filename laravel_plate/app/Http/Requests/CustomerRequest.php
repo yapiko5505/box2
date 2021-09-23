@@ -27,7 +27,7 @@ class CustomerRequest extends FormRequest
             'name' => 'required',
             'postal' => 'required',
             'address' => 'required',
-            'phone' => 'required|numeric',
+            'phone' => 'required',
             'email' => 'required',
             'todo' => 'required'
         ];
@@ -39,7 +39,7 @@ class CustomerRequest extends FormRequest
             'name.required' => '名称は必ず入力してください。',
             'postal.required' => '郵便番号は必ず入力してください。',
             'address.required' => '住所は必ず入力してください。',
-            'numeric' => '数値で入力してください。',
+            'phone.required' => '電話番号は必ず入力してください。',
             'email.required' => 'メールは必ず入力してください。',
             'todo.required' => '用途は必ず入力してください。'
         ];

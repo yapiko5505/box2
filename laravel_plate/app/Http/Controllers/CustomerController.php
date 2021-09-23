@@ -15,9 +15,9 @@ class CustomerController extends Controller
 
          if(!empty($keyword))
          {
-             $query->where('name', '%'.$keyword.'%');
+             $query->where('name', 'like', '%'.$keyword.'%');
          }
-        $items = $query->orderBy('id', 'desc')->paginate(5);
+        $items = $query->orderBy('id')->simplepaginate(5);
         return view('customer.list')->with('items', $items)->with('keyword', $keyword);
     }
 
@@ -54,8 +54,8 @@ class CustomerController extends Controller
 
     public function edit_index($id)
     {
-        $item = \App\Customer::findOrFail($id);
-        return view('customer.edit_index')->with('item', $item);
+        $item = Customer::findOrFail($id);
+        return view('customer.edit_index')->with('item',$item);
     }
 
     public function edit_confirm(\App\Http\Requests\CustomerRequest $request)

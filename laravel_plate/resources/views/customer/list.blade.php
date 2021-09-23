@@ -34,7 +34,7 @@
                     <td>{{$item->todo}}</td>
                     <td>
                         <a href="" class="btn btn-primary btn-sm">編集</a>
-                        <a href="/customer/delete/?" class="btn btn-danger btn-sm">削除</a>
+                        <a href="" class="btn btn-danger btn-sm">削除</a>
                     </td>
                 </tr>
                 @endforeach
