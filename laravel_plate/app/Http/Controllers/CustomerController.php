@@ -4,21 +4,29 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Customer;
+use Illuminate\Support\Facades\Auth;
 
 class CustomerController extends Controller
 {
+
+    //  public function _construct()
+    //  {
+    //  $this->middleware('auth');
+    //  }
+
     public function getIndex(Request $request)
     {
-         $keyword = $request->input('keyword');
+        $user = Auth::user();
+        $keyword = $request->input('keyword');
 
-         $query = Customer::query();
+        $query = Customer::query();
 
-         if(!empty($keyword))
-         {
+        if(!empty($keyword))
+        {
              $query->where('name', 'like', '%'.$keyword.'%');
-         }
+        }
         $items = $query->orderBy('id')->simplepaginate(5);
-        return view('customer.list')->with('items', $items)->with('keyword', $keyword);
+        return view('customer.list')->with('items', $items)->with('keyword', $keyword)->with('user', $user);
     }
 
     public function new_index()

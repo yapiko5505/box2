@@ -7,6 +7,11 @@
 @endsection
 
 @section('content')
+         @if (Auth::check()) 
+         <p>USER: {{$user->name .'(' . $user->email . ')'}}</p> 
+         @else 
+         <p>ログインしていません。(<a href="/login">ログイン</a>|<a href="/register">登録</a>)</p> 
+         @endif 
         <div class="row" style="margin-bottom: 30px;">
             <div class="col-sm-10" style="margin-bottom: 10px;">
                 <form method="get" action="" class="form-inline">
@@ -41,6 +46,7 @@
         </table>
         <!-- page control -->
         {!! $items->appends(['keyword'=>$keyword])->render() !!}
+        <a href="{{ url('/home') }}">ホームログアウト</a> 
 
 @endsection
 
