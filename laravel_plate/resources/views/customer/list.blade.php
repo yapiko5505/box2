@@ -7,11 +7,6 @@
 @endsection
 
 @section('content')
-         @if (Auth::check()) 
-         <p>USER: {{$user->name .'(' . $user->email . ')'}}</p> 
-         @else 
-         <p>ログインしていません。(<a href="/login">ログイン</a>|<a href="/register">登録</a>)</p> 
-         @endif 
         <div class="row" style="margin-bottom: 30px;">
             <div class="col-sm-10" style="margin-bottom: 10px;">
                 <form method="get" action="" class="form-inline">
@@ -38,8 +33,8 @@
                     <td>{{$item->email}}</td>
                     <td>{{$item->todo}}</td>
                     <td>
-                        <a href="" class="btn btn-primary btn-sm">編集</a>
-                        <a href="" class="btn btn-danger btn-sm">削除</a>
+                        <a href="/customer/edit/{{$item->id}}" class="btn btn-primary btn-sm">編集</a>
+                        <a href="/customer/delete/{{$item->id}}" class="btn btn-danger btn-sm">削除</a>
                     </td>
                 </tr>
                 @endforeach

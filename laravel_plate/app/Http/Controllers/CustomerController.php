@@ -9,14 +9,8 @@ use Illuminate\Support\Facades\Auth;
 class CustomerController extends Controller
 {
 
-    //  public function _construct()
-    //  {
-    //  $this->middleware('auth');
-    //  }
-
     public function getIndex(Request $request)
     {
-        $user = Auth::user();
         $keyword = $request->input('keyword');
 
         $query = Customer::query();
@@ -26,7 +20,7 @@ class CustomerController extends Controller
              $query->where('name', 'like', '%'.$keyword.'%');
         }
         $items = $query->orderBy('id')->simplepaginate(5);
-        return view('customer.list')->with('items', $items)->with('keyword', $keyword)->with('user', $user);
+        return view('customer.list')->with('items', $items)->with('keyword', $keyword);
     }
 
     public function new_index()
@@ -62,8 +56,8 @@ class CustomerController extends Controller
 
     public function edit_index($id)
     {
-        $item = Customer::findOrFail($id);
-        return view('customer.edit_index')->with('item',$item);
+        $form = Customer::findOrFail($id);
+        return view('customer.edit_index')->with('form',$form);
     }
 
     public function edit_confirm(\App\Http\Requests\CustomerRequest $request)
@@ -99,8 +93,9 @@ class CustomerController extends Controller
     }   
 
     public function remove(Request $request)
-    {
-        Customer::find($request->id)->delete();
+    {   
+        $customer = Customer::find($request->id);
+        $customer->delete();
         return redirect()->to('customer/list');
     }
 }

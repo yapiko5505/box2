@@ -2,6 +2,8 @@
     <head>
         <title>@yield('title')</title>
         <style>
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet" media="screen">
             body{font-size:16pt; color:#999; margin: 5px;}
             h1{font-size:50pt; text-align:right; color:#f6f6f6;
                margin:-20px 0px -30px 0px; letter-spacing:-4pt; }

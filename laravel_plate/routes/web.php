@@ -26,7 +26,7 @@ use Illuminate\Support\Facades\Route;
       Route::patch('/edit/{id}','App\Http\Controllers\CustomerController@edit_confirm');
       Route::post('/edit/{id}','App\Http\Controllers\CustomerController@edit_finish');
       Route::get('/delete/{id}','App\Http\Controllers\CustomerController@delete');
-      Route::post('/delete/{id}','App\Http\Controllers\CustomerController@remove');
+       Route::post('/delete/{id}','App\Http\Controllers\CustomerController@remove');
 
      });
     
