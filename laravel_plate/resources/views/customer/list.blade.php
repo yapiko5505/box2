@@ -3,7 +3,7 @@
 
 @section('menubar')
     @parent
-    インデックスページ<br>
+    一覧ページ<br>
 @endsection
 
 @section('content')
@@ -22,7 +22,7 @@
         </div>
         <table>
             @csrf
-            <tr><th>id</th><th>name</th><th>postal</th><th>address</th><th>phone</th><th>email</th><th>todo</th><tr>
+            <tr><th>id</th><th>名称</th><th>郵便番号</th><th>住所</th><th>電話番号</th><th>eメール</th><th>用途</th><tr>
                 @foreach ($items as $item)
                 <tr>
                     <td>{{$item->id}}</td>

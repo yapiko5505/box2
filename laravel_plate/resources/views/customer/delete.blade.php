@@ -13,12 +13,12 @@
             @csrf
             <input type="hidden" name="id" value="{{$form->id}}">
             <tr><th>id: </th><td><input type="text" name="id" value="{{$form->id}}"></td></tr>
-            <tr><th>name: </th><td><input type="text" name="name" value="{{$form->name}}"></td></tr>
-            <tr><th>postal: </th><td><input type="text" name="postal" value="{{$form->postal}}"></td></tr>
-            <tr><th>address: </th><td><input type="text" name="address" value="{{$form->address}}"></td></tr>
-            <tr><th>phone: </th><td><input type="text" name="phone" value="{{$form->phone}}"></td></tr>
-            <tr><th>email: </th><td><input type="text" name="email" value="{{$form->email}}"></td></tr>
-            <tr><th>todo: </th><td><input type="text" name="todo" value="{{$form->todo}}"></td></tr>
+            <tr><th>name: </th><td><input type="text" name="名称" value="{{$form->name}}"></td></tr>
+            <tr><th>postal: </th><td><input type="text" name="郵便番号" value="{{$form->postal}}"></td></tr>
+            <tr><th>address: </th><td><input type="text" name="住所" value="{{$form->address}}"></td></tr>
+            <tr><th>phone: </th><td><input type="text" name="電話番号" value="{{$form->phone}}"></td></tr>
+            <tr><th>email: </th><td><input type="text" name="eメール" value="{{$form->email}}"></td></tr>
+            <tr><th>todo: </th><td><input type="text" name="用途" value="{{$form->todo}}"></td></tr>
             <tr><th></th><td><input type="submit" value="send"></td></tr>
         </table>
     </form>
