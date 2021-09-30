@@ -37,7 +37,7 @@
             <tr><th>ERROR</th><td>{{$errors->first('todo')}}</td></tr>
             @endif
             <tr><th>用途: </th><td><input type="text" name="todo" value="{{$form->todo}}"></td></tr>
-            <tr><th></th><td><input type="submit" value="send"></td></tr>
+            <tr><th></th><td><input type="submit" value="編集"></td></tr>
         </table>
     </form>
 @endsection
