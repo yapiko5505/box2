@@ -19,27 +19,27 @@
         <input type="hidden" name="email" value="{{$email}}">
         <input type="hidden" name="todo" value="{{$todo}}">
         <div class="row">
-            <label class="col-sm-4 control-label">名前</label>
+            <label class="col-sm-4 control-label">名称:</label>
             <div class="col-sm-8">{{$name}}</div>
         </div>
         <div class="row">
-            <label class="col-sm-4 control-label">郵便番号</label>
+            <label class="col-sm-4 control-label">郵便番号:</label>
             <div class="col-sm-8">{{$postal}}</div>
         </div>
         <div class="row">
-            <label class="col-sm-4 control-label">住所</label>
+            <label class="col-sm-4 control-label">住所:</label>
             <div class="col-sm-8">{{$address}}</div>
         </div>
         <div class="row">
-            <label class="col-sm-4 control-label">電話番号</label>
+            <label class="col-sm-4 control-label">電話番号:</label>
             <div class="col-sm-8">{{$phone}}</div>
         </div>
         <div class="row">
-            <label class="col-sm-4 control-label">メールアドレス</label>
+            <label class="col-sm-4 control-label">eメール:</label>
             <div class="col-sm-8">{{$email}}</div>
         </div>
         <div class="row">
-            <label class="col-sm-4 control-label">用途</label>
+            <label class="col-sm-4 control-label">用途:</label>
             <div class="col-sm-8">{{$todo}}</div>
         </div>
         <div class="row" style="margin-top: 30px;">

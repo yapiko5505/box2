@@ -4,7 +4,7 @@
 
 @section('menubar')
     @parent
-    更新ページ
+    編集ページ
 @endsection
 
 @section('content')
